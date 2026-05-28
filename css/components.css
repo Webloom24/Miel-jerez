@@ -666,6 +666,34 @@
 }
 
 /* =============================================
+   PRODUCTO A COTIZACIÓN
+   ============================================= */
+
+.producto-badge--cotizacion {
+  background: var(--lavanda) !important;
+}
+
+.producto-card-btn--cotizacion {
+  display: block;
+  text-align: center;
+  margin-top: var(--esp-s);
+  padding: 0.7rem 1rem;
+  background: var(--lavanda);
+  color: #fff;
+  border-radius: var(--radio-m);
+  font-size: var(--texto-s);
+  font-weight: 500;
+  text-decoration: none;
+  transition: background var(--trans-rapida), transform var(--trans-rapida);
+}
+
+.producto-card-btn--cotizacion:hover {
+  background: var(--lavanda-oscuro);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* =============================================
    PRODUCTO AGOTADO
    ============================================= */
 
@@ -693,7 +721,7 @@
 .precio-cotizacion {
   font-size: var(--texto-s);
   font-weight: 600;
-  color: var(--miel-oscuro);
+  color: var(--lavanda);
   font-style: italic;
   letter-spacing: 0.02em;
 }

@@ -15,8 +15,9 @@ function htmlCard(producto, tipoPrecio) {
       '<span>' + producto.nombre.split(' ')[0] + '</span>' +
     '</div>';
 
-  // Producto AGOTADO con precio a cotización
-  if (producto.agotado) {
+  // Producto AGOTADO CON OPCIÓN DE COTIZACIÓN
+  if (producto.precioCotizacion) {
+    var waMsg = encodeURIComponent('Hola! Quería consultar si hay disponibilidad del ' + producto.nombre + ' para poder cotizarlo. ¡Gracias!');
     return '<article class="producto-card producto-card--agotado">' +
       '<div class="producto-card-img">' +
         '<span class="producto-badge producto-badge--agotado">Agotado</span>' +
@@ -29,8 +30,31 @@ function htmlCard(producto, tipoPrecio) {
         '<div class="producto-precios">' +
           '<span class="precio-cotizacion">Precio a cotización</span>' +
         '</div>' +
+        '<a class="producto-card-btn producto-card-btn--cotizacion" ' +
+          'href="https://wa.me/573013223701?text=' + waMsg + '" ' +
+          'target="_blank" rel="noopener">' +
+          'Cotizar disponibilidad' +
+        '</a>' +
+      '</div>' +
+    '</article>';
+  }
+
+  // Producto AGOTADO
+  if (producto.agotado) {
+    return '<article class="producto-card producto-card--agotado">' +
+      '<div class="producto-card-img">' +
+        '<span class="producto-badge producto-badge--agotado">Agotado</span>' +
+        imgHtml +
+        '<div class="producto-card-overlay" aria-hidden="true"></div>' +
+      '</div>' +
+      '<div class="producto-card-info">' +
+        '<h3 class="producto-nombre">' + producto.nombre + '</h3>' +
+        '<p class="producto-descripcion">' + producto.descripcion + '</p>' +
+        '<div class="producto-precios">' +
+          '<span class="precio-cotizacion">No disponible por ahora</span>' +
+        '</div>' +
         '<button class="producto-card-btn producto-card-btn--disabled" disabled>' +
-          'No disponible por ahora' +
+          'Agotado' +
         '</button>' +
       '</div>' +
     '</article>';

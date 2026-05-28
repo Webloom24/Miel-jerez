@@ -88,6 +88,15 @@ var PRODUCTOS = [
     badge: null
   },
   {
+    id: 11,
+    nombre: "Panal de Abejas",
+    categoria: "panales",
+    precioCotizacion: true,
+    imagen: "img/productos/Panel-abejas.webp",
+    descripcion: "Panal artesanal 100% natural, cosechado directamente de nuestras colmenas en Lebrija, Santander. Precio según tamaño y disponibilidad.",
+    badge: null
+  },
+  {
     id: 10,
     nombre: "Bálsamo Labial de Cera de Abeja",
     categoria: "balsamos",
