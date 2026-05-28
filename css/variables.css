@@ -11,8 +11,10 @@
   --cafe-oscuro: #2C1A0E;
   --crema:       #F5EDD8;
   --crema-suave: #FDF8F0;
-  --verde:       #3B6D11;
-  --wa-verde:    #25D366;
+  --lavanda:        #8B78C0;
+  --lavanda-oscuro: #6A5AA0;
+  --lavanda-claro:  #EDE8F8;
+  --wa-verde:       #25D366;
 
   /* Tipografía */
   --fuente-titulo: 'Playfair Display', Georgia, serif;
@@ -45,7 +47,7 @@
   /* Sombras */
   --sombra-suave: 0 2px 12px rgba(44, 26, 14, 0.08);
   --sombra-card:  0 4px 24px rgba(44, 26, 14, 0.12);
-  --sombra-hover: 0 8px 32px rgba(200, 134, 26, 0.22);
+  --sombra-hover: 0 8px 32px rgba(139, 120, 192, 0.28);
 
   /* Transiciones */
   --trans-rapida: 0.25s ease;

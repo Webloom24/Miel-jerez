@@ -71,8 +71,8 @@
 
 .navbar-links a:hover,
 .navbar-links a.activo {
-  color: var(--miel);
-  border-bottom-color: var(--miel);
+  color: var(--lavanda);
+  border-bottom-color: var(--lavanda);
 }
 
 /* Acciones del navbar */
@@ -236,7 +236,7 @@
     transform: translateY(-50%);
     width: 4px;
     height: 60%;
-    background: var(--miel);
+    background: var(--lavanda);
     border-radius: 0 2px 2px 0;
   }
 

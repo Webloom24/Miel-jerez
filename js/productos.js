@@ -18,7 +18,7 @@ var PRODUCTOS = [
     id: 2,
     nombre: "Miel Pura 250g",
     categoria: "mieles",
-    mayoreo: 18000,
+    mayoreo: 17000,
     detal: 20000,
     imagen: "img/productos/miel-250.webp",
     descripcion: "Miel multifloral 100% pura. Presentación ideal para el hogar.",
@@ -28,7 +28,7 @@ var PRODUCTOS = [
     id: 3,
     nombre: "Miel Pura 150g",
     categoria: "mieles",
-    mayoreo: 13500,
+    mayoreo: 12000,
     detal: 15000,
     imagen: "img/productos/miel-150.webp",
     descripcion: "Miel multifloral 100% pura. Perfecta para regalo o llevar.",
@@ -38,7 +38,7 @@ var PRODUCTOS = [
     id: 4,
     nombre: "Polen 170g",
     categoria: "polen",
-    mayoreo: 22500,
+    mayoreo: 22000,
     detal: 25000,
     imagen: "img/productos/polen-170.webp",
     descripcion: "Polen de abejas 100% natural, recolectado fresco. Frasco de vidrio 170g.",
@@ -48,7 +48,7 @@ var PRODUCTOS = [
     id: 5,
     nombre: "Polen 80g",
     categoria: "polen",
-    mayoreo: 12600,
+    mayoreo: 12000,
     detal: 14000,
     imagen: "img/productos/polen-80.webp",
     descripcion: "Polen de abejas natural. Presentación pequeña, ideal para comenzar.",
@@ -56,11 +56,14 @@ var PRODUCTOS = [
   },
   {
     id: 6,
-    nombre: "Granola 250g",
+    nombre: "Granola Artesanal",
     categoria: "granola",
-    mayoreo: 13000,
-    detal: 15000,
-    imagen: "img/productos/granola-250.webp",
+    tipo: "variantes",
+    variantes: [
+      { gramaje: "200g", nombre: "Granola 200g", mayoreo: 10000, detal: 12000 },
+      { gramaje: "500g", nombre: "Granola 500g", mayoreo: 24300, detal: 27000 }
+    ],
+    imagen: "img/productos/granola-200g-y-500g.webp",
     descripcion: "Granola artesanal con avena, frutos secos y miel de abejas Jerez.",
     badge: null
   },
@@ -76,34 +79,24 @@ var PRODUCTOS = [
   },
   {
     id: 8,
-    nombre: "Bálsamo Hidratante 40g",
+    nombre: "Bálsamo Hidratante de Cera de Abejas 20g",
     categoria: "balsamos",
-    mayoreo: 63000,
-    detal: 70000,
-    imagen: "img/productos/balsamo-40.webp",
-    descripcion: "Bálsamo hidratante de cera de abejas. Producto natural 40g.",
-    badge: "Premium"
-  },
-  {
-    id: 9,
-    nombre: "Bálsamo Hidratante 15g",
-    categoria: "balsamos",
-    mayoreo: 22500,
+    mayoreo: 22000,
     detal: 25000,
-    imagen: "img/productos/balsamo-15.webp",
-    descripcion: "Bálsamo hidratante de cera de abejas. Presentación bolsillo 15g.",
+    imagen: "img/productos/balsamo-40.webp",
+    descripcion: "Bálsamo hidratante de cera de abejas 100% natural. Presentación 20g.",
     badge: null
   },
   {
     id: 10,
-    nombre: "Bálsamo Labial",
+    nombre: "Bálsamo Labial de Cera de Abeja",
     categoria: "balsamos",
-    mayoreo: 13500,
+    mayoreo: 13000,
     detal: 15000,
     imagen: "img/productos/balsamo-labial.webp",
     descripcion: "Bálsamo labial de cera de abeja 100% natural.",
     badge: null
-  }
+  },
 ];
 
 // SVG de abeja inline para placeholders de imagen
