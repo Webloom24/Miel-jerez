@@ -11,7 +11,7 @@
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(200, 134, 26, 0.15);
-  box-shadow: 0 2px 16px rgba(44, 26, 14, 0.06);
+  box-shadow: 0 2px 16px rgba(44, 32, 38, 0.06);
 }
 
 .navbar-inner {
@@ -203,7 +203,7 @@
     align-items: stretch;
     gap: 0;
     border-bottom: 2px solid var(--crema);
-    box-shadow: 0 8px 24px rgba(44, 26, 14, 0.12);
+    box-shadow: 0 8px 24px rgba(44, 32, 38, 0.12);
     /* Oculto por defecto */
     max-height: 0;
     overflow: hidden;

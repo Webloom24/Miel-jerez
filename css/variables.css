@@ -3,17 +3,17 @@
    ============================================= */
 
 :root {
-  /* Colores principales */
-  --miel:        #C8861A;
-  --miel-claro:  #F5C842;
-  --miel-oscuro: #9A6412;
-  --cafe:        #6B3A1F;
-  --cafe-oscuro: #2C1A0E;
-  --crema:       #F5EDD8;
-  --crema-suave: #FDF8F0;
-  --lavanda:        #8B78C0;
-  --lavanda-oscuro: #6A5AA0;
-  --lavanda-claro:  #EDE8F8;
+  /* Colores principales — paleta del logo */
+  --miel:        #B47C3C;   /* beige tostado cálido */
+  --miel-claro:  #F5CA72;   /* dorado miel */
+  --miel-oscuro: #673B0A;   /* marrón miel oscuro */
+  --cafe:        #59464E;   /* gris malva cuerpo */
+  --cafe-oscuro: #2C2026;   /* mauve muy oscuro */
+  --crema:       #EDE0E9;   /* crema rosada suave */
+  --crema-suave: #FAF2F6;   /* marfil rosado */
+  --lavanda:        #6E5467;  /* malva medio — acciones primarias */
+  --lavanda-oscuro: #4E3A48;  /* malva oscuro — hover */
+  --lavanda-claro:  #DBC8DC;  /* lavanda pastel — fondos suaves */
   --wa-verde:       #25D366;
 
   /* Tipografía */
@@ -45,9 +45,9 @@
   --radio-pill: 999px;
 
   /* Sombras */
-  --sombra-suave: 0 2px 12px rgba(44, 26, 14, 0.08);
-  --sombra-card:  0 4px 24px rgba(44, 26, 14, 0.12);
-  --sombra-hover: 0 8px 32px rgba(139, 120, 192, 0.28);
+  --sombra-suave: 0 2px 12px rgba(44, 32, 38, 0.08);
+  --sombra-card:  0 4px 24px rgba(44, 32, 38, 0.12);
+  --sombra-hover: 0 8px 32px rgba(110, 84, 103, 0.28);
 
   /* Transiciones */
   --trans-rapida: 0.25s ease;
