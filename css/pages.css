@@ -1069,11 +1069,12 @@ textarea.form-control {
     justify-content: space-between;
     align-items: center;
   }
-  .catalogo-controles-inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
   .beneficios-grid {
+    grid-template-columns: 1fr;
+  }
+  /* Valores: 1 columna en teléfonos — 2 col en ~400px
+     produce tarjetas de 135px de contenido que desbordan */
+  .valores-grid {
     grid-template-columns: 1fr;
   }
   .video-editorial-wrap {
@@ -1275,5 +1276,125 @@ textarea.form-control {
   }
   .valor-breve-item {
     padding: var(--esp-m);
+  }
+}
+
+/* =============================================
+   RESPONSIVE MÓVIL — Mejoras de experiencia
+   ============================================= */
+
+@media (max-width: 768px) {
+
+  /* Reducir el padding de todas las secciones:
+     64px en móvil es demasiado, 40px es más cómodo */
+  .seccion {
+    padding-top: var(--esp-xl);
+    padding-bottom: var(--esp-xl);
+  }
+
+  /* Page headers interiores más compactos */
+  .page-header {
+    padding: var(--esp-xl) var(--esp-l);
+  }
+
+  /* CTA final más compacto */
+  .cta-final {
+    padding: var(--esp-xl) var(--esp-l);
+  }
+
+  /* Título de sección con menos espacio inferior */
+  .seccion-titulo {
+    margin-bottom: var(--esp-xl);
+  }
+
+  /* ---- CATÁLOGO: quitar sticky en móvil ----
+     El filtro fijo + navbar ocupa ~160px de pantalla,
+     dejando poco espacio para ver los productos */
+  .catalogo-controles {
+    position: static;
+    top: auto;
+  }
+
+  /* Filtros de categoría: scroll horizontal suave
+     en vez de saltar a dos líneas */
+  .filtros-categorias {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+    /* Pequeño fade en el borde derecho para indicar scroll */
+    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    mask-image: linear-gradient(to right, black 85%, transparent 100%);
+  }
+  .filtros-categorias::-webkit-scrollbar {
+    display: none;
+  }
+  /* Los chips no se encogen en el scroll horizontal */
+  .filtro-btn {
+    flex-shrink: 0;
+  }
+
+  /* Hero botones: columna centrada en pantallas ≤768px */
+  .hero-botones {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-botones .btn {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+
+  /* Valores nosotros: tarjetas más compactas */
+  .valor-card {
+    padding: var(--esp-l) var(--esp-m);
+  }
+
+  /* Misión/visión cards */
+  .mv-card {
+    padding: var(--esp-l);
+  }
+
+  /* Quote de nosotros: tamaño más manejable */
+  .nosotros-quote {
+    font-size: var(--texto-xl);
+  }
+
+  /* Documental: texto más accesible */
+  .documental-texto h2 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* Hero: padding lateral reducido en pantallas muy pequeñas */
+  .hero-contenido {
+    padding-left: var(--esp-m);
+    padding-right: var(--esp-m);
+  }
+
+  /* Carrito: ítems más compactos */
+  .carrito-item {
+    padding: var(--esp-m);
+    gap: var(--esp-s);
+  }
+  .carrito-resumen {
+    padding: var(--esp-l);
+  }
+
+  /* Proceso de nosotros: números más pequeños */
+  .paso-numero {
+    width: 56px;
+    height: 56px;
+  }
+
+  /* CTA final: texto centrado cómodo */
+  .cta-final h2 {
+    font-size: clamp(1.3rem, 6vw, 1.8rem);
+  }
+  .cta-final p {
+    font-size: var(--texto-m);
   }
 }
