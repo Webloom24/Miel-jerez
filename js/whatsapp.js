@@ -15,30 +15,40 @@ function formatearPrecio(numero) {
 
 // Genera el mensaje de WhatsApp con el detalle del pedido
 function generarMensajeWhatsApp(carrito, tipoPrecio) {
+  var SEP = '━━━━━━━━━━━━━━━━';
+
   if (!carrito || carrito.length === 0) {
-    return '🍯 *Pedido Miel Jerez*\n\nHola, me gustaría obtener información sobre sus productos. 🐝';
+    return (
+      '🍯 *¡Hola, Miel Jerez!*\n' +
+      'Me gustaría obtener información sobre sus productos. 🐝'
+    );
   }
 
-  var lineas = carrito.map(function (item) {
+  var tipoTexto = (tipoPrecio === 'mayoreo') ? 'Mayoreo' : 'Detal';
+
+  var lineasProductos = carrito.map(function (item) {
     var subtotal = item.precio * item.cantidad;
-    return '• ' + item.cantidad + 'x ' + item.nombre +
-      ' — ' + formatearPrecio(item.precio) + ' c/u = *' + formatearPrecio(subtotal) + '*';
+    return (
+      '• *' + item.cantidad + 'x* ' + item.nombre + '\n' +
+      '  💰 ' + formatearPrecio(item.precio) + ' c/u  →  *' + formatearPrecio(subtotal) + '*'
+    );
   });
 
   var total = carrito.reduce(function (acc, item) {
     return acc + (item.precio * item.cantidad);
   }, 0);
 
-  var tipoTexto = (tipoPrecio === 'mayoreo') ? 'Mayoreo' : 'Detal';
-
-  var mensaje =
-    '🍯 *Pedido Miel Jerez*\n\n' +
-    lineas.join('\n') +
-    '\n\n💰 *Total: ' + formatearPrecio(total) + '*' +
-    '\n📦 Precio: ' + tipoTexto +
-    '\n\n¡Gracias por su pedido! 🐝';
-
-  return mensaje;
+  return (
+    '🍯 *¡Hola, Miel Jerez!*\n' +
+    'Quiero realizar el siguiente pedido:\n\n' +
+    SEP + '\n\n' +
+    '📦 *Productos:*\n\n' +
+    lineasProductos.join('\n\n') + '\n\n' +
+    SEP + '\n\n' +
+    '🧾 *Total del pedido:*  *' + formatearPrecio(total) + '*\n' +
+    '🏷️ Tipo de precio: *' + tipoTexto + '*\n\n' +
+    '¡Muchas gracias! 😊🐝'
+  );
 }
 
 // Abre WhatsApp con el mensaje codificado
