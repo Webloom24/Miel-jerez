@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conoce la historia de Miel Jerez, empresa apícola familiar de Bucaramanga, Colombia. Miel 100% natural y artesanal.">
+  <title>Nuestra Historia · Miel Jerez</title>
+
+  <link rel="icon" type="image/webp" href="img/logos/favicon.webp">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" role="navigation" aria-label="Navegación principal">
+  <div class="container navbar-inner">
+    <a href="index.html" class="navbar-logo">
+      <img src="img/logos/logo.webp" class="navbar-logo-img" alt="Logo Miel Jerez" width="38" height="38">
+      <span class="navbar-logo-texto">Miel <span>Jerez</span></span>
+    </a>
+
+    <div class="navbar-links">
+      <a href="index.html">Inicio</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+
+    <div class="navbar-acciones">
+      <a href="carrito.html" class="btn-carrito" aria-label="Ver carrito">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 2 L3 6 v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+        <span class="carrito-badge">0</span>
+      </a>
+      <button class="navbar-hamburguesa" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HEADER ===== -->
+<header class="page-header">
+  <div class="page-header-hexes" aria-hidden="true">
+    <svg width="90" height="104" viewBox="0 0 90 104" style="top:-25px;left:3%"><polygon points="45,2 88,26 88,78 45,102 2,78 2,26" fill="none" stroke="#C8861A" stroke-width="1.5"/></svg>
+    <svg width="55" height="63" viewBox="0 0 55 63" style="top:5px;right:8%"><polygon points="27,2 53,16 53,47 27,61 1,47 1,16" fill="#F5C842"/></svg>
+    <svg width="40" height="46" viewBox="0 0 40 46" style="bottom:0;left:18%"><polygon points="20,2 38,12 38,34 20,44 2,34 2,12" fill="#C8861A"/></svg>
+  </div>
+  <h1>Nuestra Historia</h1>
+  <p>Una familia bumanguesa apasionada por la apicultura y lo natural</p>
+</header>
+
+<!-- ===== HISTORIA ===== -->
+<main>
+  <section class="seccion" aria-labelledby="titulo-historia">
+    <div class="container">
+      <div class="nosotros-historia">
+        <!-- Foto de la familia -->
+        <img src="img/productos/familia-jerez.webp"
+             class="nosotros-foto-img"
+             alt="La familia Jerez en su apiario artesanal en Bucaramanga, Santander"
+             loading="lazy">
+
+        <!-- Texto -->
+        <div>
+          <span class="badge-natural">Empresa familiar · Bucaramanga</span>
+          <h2 id="titulo-historia" style="margin-top: var(--esp-m);">La historia detrás de cada gota</h2>
+
+          <blockquote class="nosotros-quote">
+            "Las abejas nos enseñaron que el trabajo constante y la pureza son los únicos ingredientes que hacen grande a una familia."
+          </blockquote>
+
+          <p>Miel Jerez nació del amor de una familia bumanguesa por la naturaleza y los productos que ella ofrece sin alteraciones. Hace más de una década, los Jerez comenzaron con unas pocas colmenas en las laderas de la cordillera santandereana, aprendiendo el oficio apícola de generación en generación.</p>
+          <p style="margin-top: var(--esp-m);">Hoy, nuestro apiario cuenta con colmenas distribuidas en zonas de flora nativa diversa, lo que da a nuestra miel ese carácter multifloral único: notas florales, frutales y terrosas que reflejan la riqueza botánica de nuestra región.</p>
+          <p style="margin-top: var(--esp-m);">Cada producto que llega a tus manos fue cosechado, procesado y envasado por nuestra propia familia. Sin intermediarios, sin fábricas, sin aditivos. Solo lo que la naturaleza y las abejas producen juntas.</p>
+
+          <a href="catalogo.html" class="btn btn-primario" style="margin-top: var(--esp-xl);">Ver nuestros productos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VALORES ===== -->
+  <section class="seccion" style="background: var(--crema);" aria-labelledby="titulo-valores">
+    <div class="container">
+      <div class="seccion-titulo">
+        <h2 id="titulo-valores">Nuestros valores</h2>
+        <p>Los principios que guían cada cosecha</p>
+        <span class="linea-deco"></span>
+      </div>
+
+      <div class="valores-grid">
+        <!-- Artesanal -->
+        <div class="valor-card">
+          <div class="valor-icono">
+            <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path d="M14 3 L14 25" stroke="var(--miel)" stroke-width="2"/>
+              <path d="M8 8 Q3 14 8 20" stroke="var(--miel)" fill="none"/>
+              <path d="M20 8 Q25 14 20 20" stroke="var(--miel)" fill="none"/>
+              <circle cx="14" cy="14" r="4" fill="var(--miel-claro)" stroke="var(--miel)"/>
+            </svg>
+          </div>
+          <h3>Artesanal</h3>
+          <p>Cada paso del proceso es manual. No usamos maquinaria industrial que altere las propiedades naturales de la miel.</p>
+        </div>
+
+        <!-- Natural -->
+        <div class="valor-card">
+          <div class="valor-icono">
+            <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path d="M14 25 C14 25 4 17 4 10 C4 6 7 3 10 4 C12 4.5 13.5 6 14 8 C14.5 6 16 4.5 18 4 C21 3 24 6 24 10 C24 17 14 25 14 25Z" fill="var(--verde)" opacity=".3" stroke="var(--verde)"/>
+              <path d="M14 8 L14 25" stroke="var(--verde)" stroke-width="1.5" stroke-dasharray="3 2"/>
+            </svg>
+          </div>
+          <h3>Natural</h3>
+          <p>Sin conservantes, colorantes ni azúcares añadidos. Miel pura tal como la producen las abejas.</p>
+        </div>
+
+        <!-- Local -->
+        <div class="valor-card">
+          <div class="valor-icono">
+            <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <circle cx="14" cy="11" r="4" fill="var(--miel-claro)" stroke="var(--miel)"/>
+              <path d="M14 25 C14 25 6 16 6 11 C6 7 9.5 4 14 4 C18.5 4 22 7 22 11 C22 16 14 25 14 25Z" stroke="var(--miel)" fill="none"/>
+            </svg>
+          </div>
+          <h3>Local</h3>
+          <p>Apoyamos la economía bumanguesa y llevamos el sabor de nuestra tierra santandereana a cada hogar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROCESO ===== -->
+  <section class="seccion" aria-labelledby="titulo-proceso-nos">
+    <div class="container">
+      <div class="seccion-titulo">
+        <h2 id="titulo-proceso-nos">Nuestro proceso</h2>
+        <p>Del panal a tu mesa, paso a paso</p>
+        <span class="linea-deco"></span>
+      </div>
+
+      <div class="proceso-pasos">
+        <!-- Paso 1 -->
+        <div class="paso">
+          <div class="paso-numero" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none" width="36" height="36" aria-hidden="true">
+              <polygon points="20,2 38,11 38,29 20,38 2,29 2,11" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+              <text x="20" y="26" text-anchor="middle" fill="#fff" font-size="16" font-family="Playfair Display, serif" font-weight="700">1</text>
+            </svg>
+          </div>
+          <h4>Colmena</h4>
+          <p>Nuestras abejas trabajan libremente en un entorno natural sin pesticidas ni cultivos industriales.</p>
+        </div>
+
+        <!-- Paso 2 -->
+        <div class="paso">
+          <div class="paso-numero" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none" width="36" height="36" aria-hidden="true">
+              <polygon points="20,2 38,11 38,29 20,38 2,29 2,11" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+              <text x="20" y="26" text-anchor="middle" fill="#fff" font-size="16" font-family="Playfair Display, serif" font-weight="700">2</text>
+            </svg>
+          </div>
+          <h4>Cosecha</h4>
+          <p>Recolectamos los panales de forma manual y respetuosa, garantizando el bienestar del panal.</p>
+        </div>
+
+        <!-- Paso 3 -->
+        <div class="paso">
+          <div class="paso-numero" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none" width="36" height="36" aria-hidden="true">
+              <polygon points="20,2 38,11 38,29 20,38 2,29 2,11" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+              <text x="20" y="26" text-anchor="middle" fill="#fff" font-size="16" font-family="Playfair Display, serif" font-weight="700">3</text>
+            </svg>
+          </div>
+          <h4>Filtrado</h4>
+          <p>Filtramos en frío para conservar todas las enzimas, antioxidantes y el aroma natural.</p>
+        </div>
+
+        <!-- Paso 4 -->
+        <div class="paso">
+          <div class="paso-numero" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none" width="36" height="36" aria-hidden="true">
+              <polygon points="20,2 38,11 38,29 20,38 2,29 2,11" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+              <text x="20" y="26" text-anchor="middle" fill="#fff" font-size="16" font-family="Playfair Display, serif" font-weight="700">4</text>
+            </svg>
+          </div>
+          <h4>Envasado</h4>
+          <p>Envasamos en tarros de vidrio sin aditivos. Lo que ves es exactamente lo que recibes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DOCUMENTAL — Video emocional del apiario ===== -->
+  <section class="documental-seccion" aria-labelledby="titulo-documental">
+    <div class="container">
+      <div class="documental-layout">
+
+        <div class="documental-texto">
+          <span class="badge-documental">Así somos</span>
+          <h2 id="titulo-documental">Cada abeja importa</h2>
+          <blockquote class="documental-quote">
+            "No solo cultivamos miel,<br>cultivamos vida."
+          </blockquote>
+          <p>Cuidar una colmena es un acto de respeto. Cada visita al apiario es una oportunidad para observar, aprender y asegurar el bienestar de miles de abejas que trabajan en perfecta armonía.</p>
+          <p>Sin antibióticos, sin tratamientos agresivos. Solo conocimiento heredado, paciencia y amor genuino por lo que hacemos.</p>
+        </div>
+
+        <div class="documental-video-wrap">
+          <video src="videos/cuidado-abejas.mp4"
+                 autoplay muted loop playsinline
+                 preload="metadata"
+                 aria-hidden="true">
+          </video>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-final" aria-labelledby="cta-nosotros">
+    <div class="container">
+      <h2 id="cta-nosotros">¿Quieres conocernos mejor?</h2>
+      <p>Escríbenos por WhatsApp y con gusto te contamos más sobre nuestro proceso y productos.</p>
+      <a href="https://wa.me/573013223701" class="btn btn-whatsapp" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Escríbenos
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-marca">
+        <a href="index.html" class="footer-logo">
+          <img src="img/logos/logo.webp" class="navbar-logo-img" alt="Logo Miel Jerez" width="38" height="38">
+          <span class="footer-logo-texto">Miel <span>Jerez</span></span>
+        </a>
+        <p>Empresa apícola familiar de Bucaramanga. Miel 100% pura, artesanal y natural.</p>
+      </div>
+      <div>
+        <h4>Páginas</h4>
+        <nav class="footer-links">
+          <a href="index.html">Inicio</a>
+          <a href="catalogo.html">Catálogo</a>
+          <a href="nosotros.html">Nosotros</a>
+          <a href="contacto.html">Contacto</a>
+          <a href="carrito.html">Mi Pedido</a>
+        </nav>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <a href="https://wa.me/573013223701" class="footer-contacto-item" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:16px;height:16px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          301 322 3701
+        </a>
+        <a href="https://wa.me/573202325371" class="footer-contacto-item" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:16px;height:16px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          320 232 5371
+        </a>
+        <a href="https://instagram.com/somosmieljerez" class="footer-contacto-item" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:16px;height:16px"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @somosmieljerez
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copyright">© 2025 Miel Jerez · Bucaramanga, Colombia · Todos los derechos reservados</p>
+      <div class="footer-redes">
+        <a href="https://instagram.com/somosmieljerez" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://wa.me/573013223701" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Carrito flotante -->
+<a href="carrito.html" class="carrito-flotante" aria-label="Ver pedido">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M6 2 L3 6 v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+    <line x1="3" y1="6" x2="21" y2="6"/>
+    <path d="M16 10a4 4 0 0 1-8 0"/>
+  </svg>
+  <span class="carrito-flotante-badge">0</span>
+</a>
+
+<script src="js/productos.js"></script>
+<script src="js/carrito.js"></script>
+<script src="js/nav.js"></script>
+</body>
+</html>

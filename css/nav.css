@@ -1,0 +1,252 @@
+/* =============================================
+   MIEL JEREZ — Navbar
+   ============================================= */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: var(--navbar-alto);
+  background: rgba(253, 248, 240, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(200, 134, 26, 0.15);
+  box-shadow: 0 2px 16px rgba(44, 26, 14, 0.06);
+}
+
+.navbar-inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--esp-l);
+}
+
+/* Logo */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-s);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.navbar-logo-img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.navbar-logo-texto {
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-xl);
+  font-weight: 700;
+  color: var(--cafe-oscuro);
+  line-height: 1;
+}
+
+.navbar-logo-texto span {
+  color: var(--miel);
+}
+
+/* Links de navegación */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-xl);
+}
+
+.navbar-links a {
+  font-family: var(--fuente-cuerpo);
+  font-size: var(--texto-m);
+  font-weight: 500;
+  color: var(--cafe);
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+  transition: all var(--trans-rapida);
+  position: relative;
+}
+
+.navbar-links a:hover,
+.navbar-links a.activo {
+  color: var(--miel);
+  border-bottom-color: var(--miel);
+}
+
+/* Acciones del navbar */
+.navbar-acciones {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-m);
+  flex-shrink: 0;
+}
+
+/* Botón carrito */
+.btn-carrito {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--crema);
+  border: 1.5px solid rgba(200, 134, 26, 0.25);
+  color: var(--cafe-oscuro);
+  cursor: pointer;
+  transition: all var(--trans-rapida);
+  text-decoration: none;
+}
+
+.btn-carrito:hover {
+  background: var(--miel);
+  color: #fff;
+  border-color: var(--miel);
+  transform: translateY(-1px);
+  box-shadow: var(--sombra-hover);
+}
+
+.btn-carrito svg {
+  width: 20px;
+  height: 20px;
+}
+
+.carrito-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 18px;
+  height: 18px;
+  background: var(--miel);
+  color: #fff;
+  border-radius: var(--radio-pill);
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  border: 2px solid var(--crema-suave);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all var(--trans-rapida);
+}
+
+.carrito-badge.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Hamburguesa (mobile) */
+.navbar-hamburguesa {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+  border-radius: var(--radio-s);
+  transition: background var(--trans-rapida);
+}
+
+.navbar-hamburguesa:hover {
+  background: var(--crema);
+}
+
+.navbar-hamburguesa span {
+  display: block;
+  height: 2px;
+  background: var(--cafe-oscuro);
+  border-radius: 2px;
+  transition: all var(--trans-rapida);
+  transform-origin: center;
+}
+
+/* Hamburguesa → X al abrirse */
+.navbar-hamburguesa.abierto span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.navbar-hamburguesa.abierto span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.navbar-hamburguesa.abierto span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =============================================
+   RESPONSIVE — Mobile
+   ============================================= */
+
+@media (max-width: 768px) {
+  .navbar-hamburguesa {
+    display: flex;
+  }
+
+  .navbar-links {
+    position: fixed;
+    top: var(--navbar-alto);
+    left: 0;
+    right: 0;
+    background: rgba(253, 248, 240, 0.98);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    border-bottom: 2px solid var(--crema);
+    box-shadow: 0 8px 24px rgba(44, 26, 14, 0.12);
+    /* Oculto por defecto */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--trans-suave);
+  }
+
+  .navbar-links.abierto {
+    max-height: 400px;
+  }
+
+  .navbar-links a {
+    padding: var(--esp-m) var(--esp-l);
+    border-bottom: 1px solid var(--crema);
+    border-left: none;
+    font-size: var(--texto-l);
+  }
+
+  .navbar-links a:hover,
+  .navbar-links a.activo {
+    background: var(--crema);
+    border-bottom-color: var(--crema);
+    padding-left: calc(var(--esp-l) + 4px);
+  }
+
+  .navbar-links a.activo::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 60%;
+    background: var(--miel);
+    border-radius: 0 2px 2px 0;
+  }
+
+  .navbar-links a {
+    position: relative;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-logo-texto {
+    font-size: var(--texto-l);
+  }
+}
