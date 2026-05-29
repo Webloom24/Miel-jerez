@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miel Jerez · Opciones de Estilo Visual</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* =============================================
+       RESET Y BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; overflow-x: hidden; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: #1a1215;
+      color: #2C2026;
+      min-height: 100vh;
+    }
+    a { text-decoration: none; }
+    img, svg { display: block; max-width: 100%; }
+
+    /* =============================================
+       HEADER COMPARADOR
+    ============================================= */
+    .comp-header {
+      background: linear-gradient(160deg, #1a1215 0%, #2C2026 60%, #3A2B30 100%);
+      padding: 2.5rem 1.5rem 0;
+      text-align: center;
+      border-bottom: 1px solid rgba(245,202,114,0.15);
+    }
+    .comp-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.25rem;
+    }
+    .comp-logo-hex {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #F5CA72, #B47C3C);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    .comp-logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #FAF2F6;
+    }
+    .comp-logo-text span { color: #F5CA72; }
+    .comp-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      color: #FAF2F6;
+      margin-bottom: 0.6rem;
+      line-height: 1.25;
+    }
+    .comp-header p {
+      color: rgba(250,242,246,0.6);
+      font-size: 0.9rem;
+      max-width: 52ch;
+      margin: 0 auto 2rem;
+      line-height: 1.65;
+    }
+
+    /* =============================================
+       TABS DE NAVEGACIÓN
+    ============================================= */
+    .comp-tabs {
+      display: flex;
+      gap: 4px;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 0 1rem;
+    }
+    .comp-tab {
+      padding: 0.7rem 1.3rem 0.85rem;
+      border-radius: 12px 12px 0 0;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      background: rgba(255,255,255,0.06);
+      color: rgba(250,242,246,0.55);
+      transition: all 0.25s ease;
+      white-space: nowrap;
+      letter-spacing: 0.01em;
+    }
+    .comp-tab:hover { background: rgba(255,255,255,0.12); color: rgba(250,242,246,0.9); }
+    .comp-tab.activo { font-weight: 600; color: #2C2026; }
+    .comp-tab[data-s="actual"].activo  { background: #EDE0E9; }
+    .comp-tab[data-s="a"].activo       { background: #F5EDE0; }
+    .comp-tab[data-s="b"].activo       { background: #E8D8EA; }
+    .comp-tab[data-s="c"].activo       { background: #F5CA72; }
+    .comp-tab[data-s="combo"].activo   { background: #FAF2F6; }
+
+    /* =============================================
+       PANELES DE PREVIEW
+    ============================================= */
+    .preview { display: none; }
+    .preview.activo { display: block; }
+
+    /* =============================================
+       COMPONENTES COMPARTIDOS
+    ============================================= */
+
+    /* --- NAVBAR MINI --- */
+    .mn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      height: 58px;
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 2;
+    }
+    .mn-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+    .mn-bee {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      flex-shrink: 0;
+    }
+    .mn-links {
+      display: flex;
+      gap: 1.4rem;
+      font-size: 0.83rem;
+      font-weight: 500;
+    }
+    .mn-links a { opacity: 0.75; }
+    .mn-links a.active { opacity: 1; font-weight: 600; }
+    .mn-cart {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    /* --- HERO MINI --- */
+    .mh {
+      min-height: 360px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding: 3rem 1.5rem;
+      margin-top: -58px;
+      padding-top: calc(3rem + 58px);
+    }
+    .mh-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .mh-content {
+      position: relative;
+      z-index: 2;
+      max-width: 580px;
+    }
+    .mh-badge {
+      display: inline-block;
+      padding: 0.28rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.73rem;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      margin-bottom: 1.1rem;
+    }
+    .mh-titulo {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.9rem, 5vw, 2.9rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.12;
+      margin-bottom: 0.9rem;
+    }
+    .mh-sub {
+      font-size: 0.92rem;
+      color: rgba(250,242,246,0.85);
+      max-width: 440px;
+      margin: 0 auto 1.6rem;
+      line-height: 1.65;
+    }
+    .mh-btns { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; }
+
+    /* --- BOTONES --- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.65rem 1.4rem;
+      border-radius: 999px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: 2px solid transparent;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-wa { background: #25D366 !important; color: #fff !important; border-color: #25D366 !important; }
+    .btn-wa:hover { background: #1da851 !important; }
+
+    /* --- SECCIÓN TARJETAS --- */
+    .ms {
+      padding: 2.75rem 1.5rem;
+    }
+    .ms-titulo {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .ms-titulo h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 3vw, 1.75rem);
+      margin-bottom: 0.45rem;
+      line-height: 1.25;
+    }
+    .ms-titulo p { font-size: 0.88rem; line-height: 1.55; max-width: 42ch; margin: 0 auto; }
+    .ldeco {
+      display: block;
+      width: 48px;
+      height: 3px;
+      border-radius: 999px;
+      margin: 0.7rem auto 0;
+    }
+    .mc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .mc {
+      background: #fff;
+      border-radius: 18px;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      box-shadow: 0 2px 14px rgba(44,32,38,0.07);
+      transition: transform 0.2s ease;
+    }
+    .mc:hover { transform: translateY(-3px); }
+    .mc-ico {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      margin: 0 auto 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+    .mc h3 { font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 0.4rem; }
+    .mc p { font-size: 0.79rem; line-height: 1.55; }
+
+    /* --- PRODUCTO CARD --- */
+    .mp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .mp {
+      background: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 2px 14px rgba(44,32,38,0.07);
+    }
+    .mp-img {
+      height: 110px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+    .mp-info { padding: 0.9rem 1rem; }
+    .mp-info h4 { font-family: 'Playfair Display', serif; font-size: 0.9rem; margin-bottom: 0.3rem; }
+    .mp-info p { font-size: 0.75rem; color: #59464E; line-height: 1.45; margin-bottom: 0.6rem; }
+    .mp-precio { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.65rem; }
+    .mp-btn {
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 10px;
+      border: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.79rem;
+      font-weight: 500;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    /* --- PALETA VISUAL --- */
+    .mpal {
+      display: flex;
+      gap: 0.6rem;
+      justify-content: center;
+      align-items: center;
+      padding: 1.25rem 1.5rem;
+      flex-wrap: wrap;
+    }
+    .mpal-dot {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid rgba(0,0,0,0.08);
+      position: relative;
+      cursor: default;
+    }
+    .mpal-dot::after {
+      content: attr(data-label);
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 9px;
+      white-space: nowrap;
+      color: #59464E;
+      font-weight: 600;
+    }
+    .mpal-wrap { text-align: center; }
+    .mpal-wrap p { font-size: 0.78rem; color: #59464E; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 0.9rem; }
+    .mpal-dots { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+
+    /* --- CTA STRIP --- */
+    .mcta {
+      padding: 2.25rem 1.5rem;
+      text-align: center;
+    }
+    .mcta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.2rem, 3vw, 1.55rem);
+      color: #fff;
+      margin-bottom: 0.6rem;
+    }
+    .mcta p { color: rgba(250,242,246,0.72); font-size: 0.86rem; max-width: 44ch; margin: 0 auto 1.4rem; line-height: 1.6; }
+
+    /* --- BOTONES SHOWCASE --- */
+    .mbshow {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 1.4rem 1.5rem;
+    }
+
+    /* --- LABEL DE ESTILO --- */
+    .slabel {
+      text-align: center;
+      padding: 0.9rem 1.5rem;
+      font-size: 0.73rem;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: #59464E;
+      border-top: 2px solid rgba(89,70,78,0.1);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      .mc-grid, .mp-grid { grid-template-columns: 1fr; }
+      .mn-links { display: none; }
+      .comp-tabs { gap: 3px; }
+      .comp-tab { padding: 0.6rem 0.9rem 0.75rem; font-size: 0.76rem; }
+    }
+
+
+    /* =============================================
+       ===  ESTILO ACTUAL  ========================
+    ============================================= */
+    #actual .mn { background: rgba(250,242,246,0.95); border-bottom: 1px solid rgba(180,124,60,0.12); }
+    #actual .mn-logo { color: #2C2026; }
+    #actual .mn-logo span { color: #B47C3C; }
+    #actual .mn-bee { background: #EDE0E9; }
+    #actual .mn-links a { color: #59464E; }
+    #actual .mn-links a.active { color: #6E5467; border-bottom: 2px solid #6E5467; }
+    #actual .mn-cart { background: #EDE0E9; border: 1.5px solid rgba(180,124,60,0.22); color: #59464E; }
+
+    #actual .mh { background: #3A2B30; }
+    #actual .mh-bg { background:
+      linear-gradient(to bottom, rgba(78,58,72,0.38) 0%, rgba(44,32,38,0.68) 100%),
+      linear-gradient(135deg, rgba(44,32,38,0.68) 0%, rgba(89,70,78,0.48) 45%, rgba(180,124,60,0.32) 100%),
+      radial-gradient(ellipse at 25% 65%, #4a3238 0%, transparent 55%),
+      radial-gradient(ellipse at 75% 30%, #2d4818 0%, transparent 50%),
+      linear-gradient(180deg, #1a0e12 0%, #2c1e18 100%);
+    }
+    #actual .mh-badge { background: rgba(219,200,220,0.18); border: 1px solid rgba(219,200,220,0.65); color: rgba(250,242,246,0.96); }
+    #actual .mh-titulo span { color: #F5CA72; }
+    #actual .btn-pri { background: #6E5467; color: #fff; border-color: #6E5467; }
+    #actual .btn-sec { background: transparent; color: #fff; border-color: rgba(219,200,220,0.7); }
+
+    #actual .ms { background: #EDE0E9; }
+    #actual .ms-titulo h2 { color: #2C2026; }
+    #actual .ms-titulo p { color: #59464E; }
+    #actual .ldeco { background: linear-gradient(90deg, #6E5467, #B47C3C, #F5CA72); }
+    #actual .mc-ico { background: linear-gradient(135deg, #EDE0E9, #F5CA72); }
+    #actual .mc h3 { color: #2C2026; }
+    #actual .mc p { color: #59464E; }
+
+    #actual .mbshow { background: #FAF2F6; }
+    #actual .mbshow .btn-pri { background: #6E5467; color: #fff; border-color: #6E5467; }
+    #actual .mbshow .btn-sec { background: transparent; color: #6E5467; border-color: #6E5467; }
+    #actual .mbshow .badge-samp { background: #DBC8DC; color: #4E3A48; padding: 0.4rem 1rem; border-radius: 999px; font-size: 0.78rem; font-weight: 600; }
+    #actual .mbshow .precio-samp { font-family: 'Playfair Display',serif; font-size: 1.25rem; font-weight: 700; color: #B47C3C; }
+
+    #actual .ms2 { background: #FAF2F6; }
+    #actual .mp-img { background: #EDE0E9; }
+    #actual .mp-precio { color: #B47C3C; }
+    #actual .mp-btn { background: #B47C3C; }
+    #actual .mp-btn:hover { background: #673B0A; }
+
+    #actual .mcta { background: linear-gradient(135deg, #2C2026 0%, #4E3A48 55%, #6E5467 100%); }
+
+    #actual .slabel { background: #FAF2F6; }
+    #actual .mpal-wrap { background: #FAF2F6; padding: 1.5rem; }
+
+
+    /* =============================================
+       ===  OPCIÓN A — CÁLIDA Y MELOSA  ===========
+       Botones y acciones en dorado/beige tostado.
+       Secciones en crema cálida sin lavanda.
+    ============================================= */
+    #opc-a .mn { background: rgba(255,251,245,0.96); border-bottom: 1px solid rgba(180,124,60,0.18); }
+    #opc-a .mn-logo { color: #2C2026; }
+    #opc-a .mn-logo span { color: #673B0A; }
+    #opc-a .mn-bee { background: #F5EDE0; }
+    #opc-a .mn-links a { color: #59464E; }
+    #opc-a .mn-links a.active { color: #B47C3C; border-bottom: 2px solid #B47C3C; }
+    #opc-a .mn-cart { background: #F5EDE0; border: 1.5px solid rgba(180,124,60,0.3); color: #673B0A; }
+
+    #opc-a .mh { background: #2C1A0A; }
+    #opc-a .mh-bg { background:
+      linear-gradient(to bottom, rgba(103,59,10,0.40) 0%, rgba(44,26,10,0.72) 100%),
+      linear-gradient(135deg, rgba(44,26,10,0.75) 0%, rgba(103,59,10,0.55) 45%, rgba(245,202,114,0.20) 100%),
+      radial-gradient(ellipse at 25% 65%, #4a2d0a 0%, transparent 55%),
+      radial-gradient(ellipse at 75% 30%, #2d4818 0%, transparent 50%),
+      linear-gradient(180deg, #1a0e04 0%, #3d2010 100%);
+    }
+    #opc-a .mh-badge { background: rgba(245,202,114,0.18); border: 1px solid rgba(245,202,114,0.55); color: rgba(250,242,246,0.96); }
+    #opc-a .mh-titulo span { color: #F5CA72; }
+    #opc-a .btn-pri { background: #B47C3C; color: #fff; border-color: #B47C3C; }
+    #opc-a .btn-sec { background: transparent; color: #fff; border-color: rgba(245,202,114,0.65); }
+
+    #opc-a .ms { background: #F5EDE0; }
+    #opc-a .ms-titulo h2 { color: #2C2026; }
+    #opc-a .ms-titulo p { color: #59464E; }
+    #opc-a .ldeco { background: linear-gradient(90deg, #B47C3C, #F5CA72, #B47C3C); }
+    #opc-a .mc-ico { background: linear-gradient(135deg, #F5EDE0, #F5CA72); }
+    #opc-a .mc h3 { color: #2C2026; }
+    #opc-a .mc p { color: #59464E; }
+
+    #opc-a .mbshow { background: #FFFBF5; }
+    #opc-a .mbshow .btn-pri { background: #B47C3C; color: #fff; border-color: #B47C3C; }
+    #opc-a .mbshow .btn-sec { background: transparent; color: #B47C3C; border-color: #B47C3C; }
+    #opc-a .mbshow .badge-samp { background: #F5CA72; color: #673B0A; padding: 0.4rem 1rem; border-radius: 999px; font-size: 0.78rem; font-weight: 600; }
+    #opc-a .mbshow .precio-samp { font-family: 'Playfair Display',serif; font-size: 1.25rem; font-weight: 700; color: #673B0A; }
+
+    #opc-a .ms2 { background: #FFFBF5; }
+    #opc-a .mp-img { background: #F5EDE0; }
+    #opc-a .mp-precio { color: #B47C3C; }
+    #opc-a .mp-btn { background: #B47C3C; }
+
+    #opc-a .mcta { background: linear-gradient(135deg, #2C1A0A 0%, #673B0A 55%, #B47C3C 100%); }
+
+    #opc-a .slabel { background: #FFFBF5; }
+    #opc-a .mpal-wrap { background: #FFFBF5; padding: 1.5rem; }
+
+
+    /* =============================================
+       ===  OPCIÓN B — FEMENINA Y FLORAL  =========
+       Fondos con protagonismo del lavanda pastel.
+       Secciones más rosadas y florales.
+    ============================================= */
+    #opc-b .mn { background: rgba(245,239,246,0.96); border-bottom: 1px solid rgba(110,84,103,0.12); }
+    #opc-b .mn-logo { color: #2C2026; }
+    #opc-b .mn-logo span { color: #6E5467; }
+    #opc-b .mn-bee { background: #E8D8EA; }
+    #opc-b .mn-links a { color: #59464E; }
+    #opc-b .mn-links a.active { color: #6E5467; border-bottom: 2px solid #DBC8DC; }
+    #opc-b .mn-cart { background: #E8D8EA; border: 1.5px solid rgba(110,84,103,0.22); color: #6E5467; }
+
+    #opc-b .mh { background: #2A1E2C; }
+    #opc-b .mh-bg { background:
+      linear-gradient(to bottom, rgba(90,64,95,0.42) 0%, rgba(44,32,38,0.68) 100%),
+      linear-gradient(135deg, rgba(44,32,38,0.70) 0%, rgba(110,84,103,0.52) 45%, rgba(219,200,220,0.22) 100%),
+      radial-gradient(ellipse at 25% 60%, #3a2040 0%, transparent 55%),
+      radial-gradient(ellipse at 72% 30%, #1e2a18 0%, transparent 50%),
+      linear-gradient(180deg, #180c1c 0%, #2a1e2c 100%);
+    }
+    #opc-b .mh-badge { background: rgba(219,200,220,0.25); border: 1px solid rgba(219,200,220,0.75); color: rgba(250,242,246,0.97); }
+    #opc-b .mh-titulo span { color: #DBC8DC; }
+    #opc-b .btn-pri { background: #6E5467; color: #fff; border-color: #6E5467; }
+    #opc-b .btn-sec { background: rgba(219,200,220,0.2); color: #fff; border-color: rgba(219,200,220,0.7); }
+
+    #opc-b .ms { background: #DBC8DC; }
+    #opc-b .ms-titulo h2 { color: #2C2026; }
+    #opc-b .ms-titulo p { color: #4E3A48; }
+    #opc-b .ldeco { background: linear-gradient(90deg, #6E5467, #DBC8DC, #B47C3C); }
+    #opc-b .mc-ico { background: linear-gradient(135deg, #DBC8DC, #F5CA72); }
+    #opc-b .mc h3 { color: #2C2026; }
+    #opc-b .mc p { color: #59464E; }
+
+    #opc-b .mbshow { background: #F5EFF6; }
+    #opc-b .mbshow .btn-pri { background: #6E5467; color: #fff; border-color: #6E5467; }
+    #opc-b .mbshow .btn-sec { background: transparent; color: #6E5467; border-color: #DBC8DC; }
+    #opc-b .mbshow .badge-samp { background: rgba(219,200,220,0.45); color: #4E3A48; border: 1.5px solid #DBC8DC; padding: 0.4rem 1rem; border-radius: 999px; font-size: 0.78rem; font-weight: 600; }
+    #opc-b .mbshow .precio-samp { font-family: 'Playfair Display',serif; font-size: 1.25rem; font-weight: 700; color: #6E5467; }
+
+    #opc-b .ms2 { background: #F5EFF6; }
+    #opc-b .mp-img { background: #E8D8EA; }
+    #opc-b .mp-precio { color: #6E5467; }
+    #opc-b .mp-btn { background: #6E5467; }
+
+    #opc-b .mcta { background: linear-gradient(135deg, #2C2026 0%, #4E3A48 50%, #6E5467 100%); }
+
+    #opc-b .slabel { background: #F5EFF6; }
+    #opc-b .mpal-wrap { background: #F5EFF6; padding: 1.5rem; }
+
+
+    /* =============================================
+       ===  OPCIÓN C — OSCURA Y PREMIUM  ===========
+       Marrón oscuro dominante. Detalles en dorado.
+       Contraste fuerte. Sensación premium artesanal.
+    ============================================= */
+    #opc-c .mn { background: rgba(44,32,38,0.97); border-bottom: 1px solid rgba(245,202,114,0.18); }
+    #opc-c .mn-logo { color: #FAF2F6; }
+    #opc-c .mn-logo span { color: #F5CA72; }
+    #opc-c .mn-bee { background: rgba(245,202,114,0.15); }
+    #opc-c .mn-links a { color: rgba(250,242,246,0.7); }
+    #opc-c .mn-links a.active { color: #F5CA72; border-bottom: 2px solid #F5CA72; }
+    #opc-c .mn-cart { background: rgba(245,202,114,0.12); border: 1.5px solid rgba(245,202,114,0.3); color: #F5CA72; }
+
+    #opc-c .mh { background: #1a0e06; }
+    #opc-c .mh-bg { background:
+      linear-gradient(to bottom, rgba(103,59,10,0.30) 0%, rgba(26,14,6,0.82) 100%),
+      linear-gradient(135deg, rgba(26,14,6,0.88) 0%, rgba(103,59,10,0.60) 45%, rgba(180,124,60,0.28) 100%),
+      radial-gradient(ellipse at 28% 60%, #3d1f08 0%, transparent 55%),
+      radial-gradient(ellipse at 74% 32%, #2a3812 0%, transparent 45%),
+      linear-gradient(180deg, #0d0804 0%, #2a1608 100%);
+    }
+    #opc-c .mh-badge { background: rgba(245,202,114,0.14); border: 1px solid rgba(245,202,114,0.5); color: rgba(250,242,246,0.97); }
+    #opc-c .mh-titulo span { color: #F5CA72; }
+    #opc-c .btn-pri { background: #673B0A; color: #fff; border-color: #673B0A; }
+    #opc-c .btn-sec { background: rgba(245,202,114,0.12); color: #F5CA72; border-color: rgba(245,202,114,0.55); }
+
+    #opc-c .ms { background: #2C2026; }
+    #opc-c .ms-titulo h2 { color: #FAF2F6; }
+    #opc-c .ms-titulo p { color: rgba(250,242,246,0.65); }
+    #opc-c .ldeco { background: linear-gradient(90deg, #673B0A, #F5CA72, #B47C3C); }
+    #opc-c .mc-ico { background: linear-gradient(135deg, rgba(245,202,114,0.15), rgba(245,202,114,0.35)); }
+    #opc-c .mc h3 { color: #2C2026; }
+    #opc-c .mc p { color: #59464E; }
+
+    #opc-c .mbshow { background: #FAF2F6; }
+    #opc-c .mbshow .btn-pri { background: #673B0A; color: #fff; border-color: #673B0A; }
+    #opc-c .mbshow .btn-sec { background: transparent; color: #673B0A; border-color: #B47C3C; }
+    #opc-c .mbshow .badge-samp { background: #F5CA72; color: #2C2026; padding: 0.4rem 1rem; border-radius: 999px; font-size: 0.78rem; font-weight: 600; }
+    #opc-c .mbshow .precio-samp { font-family: 'Playfair Display',serif; font-size: 1.25rem; font-weight: 700; color: #673B0A; }
+
+    #opc-c .ms2 { background: #FAF2F6; }
+    #opc-c .mp-img { background: linear-gradient(135deg, #F5EDE0, #F5CA72); }
+    #opc-c .mp-precio { color: #673B0A; }
+    #opc-c .mp-btn { background: #673B0A; }
+
+    #opc-c .mcta { background: linear-gradient(135deg, #0d0804 0%, #2C1A0A 50%, #673B0A 100%); }
+
+    #opc-c .slabel { background: #FAF2F6; }
+    #opc-c .mpal-wrap { background: #FAF2F6; padding: 1.5rem; }
+
+
+    /* =============================================
+       ===  COMBINACIÓN ÚNICA  =====================
+       Fusión de los 4 estilos.
+       Gradient buttons · Secciones alternadas ·
+       Tipografía con dorado Y lavanda.
+    ============================================= */
+    #combo .mn { background: rgba(250,242,246,0.96); border-bottom: 1px solid rgba(110,84,103,0.1); }
+    #combo .mn-logo { color: #2C2026; }
+    #combo .mn-logo span { background: linear-gradient(135deg, #6E5467, #B47C3C); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    #combo .mn-bee { background: linear-gradient(135deg, #E8D8EA, #F5EDE0); }
+    #combo .mn-links a { color: #59464E; }
+    #combo .mn-links a.active { color: #6E5467; border-bottom: 2px solid #F5CA72; }
+    #combo .mn-cart { background: linear-gradient(135deg, #EDE0E9, #F5EDE0); border: 1.5px solid rgba(110,84,103,0.2); color: #6E5467; }
+
+    #combo .mh { background: #1a1015; }
+    #combo .mh-bg { background:
+      linear-gradient(to bottom, rgba(68,44,72,0.38) 0%, rgba(44,32,38,0.70) 60%, rgba(103,59,10,0.45) 100%),
+      linear-gradient(135deg, rgba(44,32,38,0.72) 0%, rgba(78,58,72,0.50) 35%, rgba(89,70,78,0.40) 60%, rgba(180,124,60,0.30) 100%),
+      radial-gradient(ellipse at 20% 60%, #3a2040 0%, transparent 50%),
+      radial-gradient(ellipse at 75% 35%, #2d4818 0%, transparent 48%),
+      radial-gradient(ellipse at 50% 80%, #3d2010 0%, transparent 40%),
+      linear-gradient(180deg, #140c18 0%, #1e1410 100%);
+    }
+    #combo .mh-badge { background: rgba(219,200,220,0.20); border: 1px solid rgba(245,202,114,0.45); color: rgba(250,242,246,0.97); }
+    #combo .mh-titulo span { color: #F5CA72; }
+    #combo .btn-pri { background: linear-gradient(135deg, #6E5467 0%, #B47C3C 100%); color: #fff; border: none; padding: 0.7rem 1.45rem; }
+    #combo .btn-sec { background: rgba(219,200,220,0.15); color: #FAF2F6; border-color: rgba(219,200,220,0.5); }
+
+    #combo .ms { background: linear-gradient(160deg, #EDE0E9 0%, #F5EDE0 100%); }
+    #combo .ms-titulo h2 { color: #2C2026; }
+    #combo .ms-titulo p { color: #59464E; }
+    #combo .ldeco { background: linear-gradient(90deg, #6E5467, #F5CA72, #B47C3C); }
+    #combo .mc-ico { background: linear-gradient(135deg, #E8D8EA, #F5CA72); }
+    #combo .mc h3 { color: #2C2026; }
+    #combo .mc p { color: #59464E; }
+
+    #combo .mbshow { background: #FAF2F6; }
+    #combo .mbshow .btn-pri { background: linear-gradient(135deg, #6E5467, #B47C3C); color: #fff; border: none; }
+    #combo .mbshow .btn-sec { background: transparent; color: #6E5467; border-color: #DBC8DC; }
+    #combo .mbshow .badge-samp { background: linear-gradient(135deg, #E8D8EA, #F5EDE0); color: #4E3A48; border: 1.5px solid rgba(110,84,103,0.25); padding: 0.4rem 1rem; border-radius: 999px; font-size: 0.78rem; font-weight: 600; }
+    #combo .mbshow .precio-samp { font-family: 'Playfair Display',serif; font-size: 1.25rem; font-weight: 700; background: linear-gradient(135deg, #6E5467, #B47C3C); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    #combo .ms2 { background: #FAF2F6; }
+    #combo .mp-img { background: linear-gradient(135deg, #E8D8EA, #F5EDE0); }
+    #combo .mp-precio { background: linear-gradient(135deg, #6E5467, #B47C3C); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    #combo .mp-btn { background: linear-gradient(135deg, #6E5467 0%, #B47C3C 100%); }
+
+    #combo .mcta {
+      background: linear-gradient(135deg, #2C2026 0%, #4E3A48 30%, #2C1A0A 65%, #673B0A 100%);
+    }
+
+    #combo .slabel { background: #FAF2F6; }
+    #combo .mpal-wrap { background: #FAF2F6; padding: 1.5rem; }
+
+  </style>
+</head>
+<body>
+
+<!-- =============================================
+     HEADER DEL COMPARADOR
+============================================= -->
+<div class="comp-header">
+  <div class="comp-logo">
+    <div class="comp-logo-hex">🐝</div>
+    <span class="comp-logo-text">Miel <span>Jerez</span></span>
+  </div>
+  <h1>Opciones de Estilo Visual</h1>
+  <p>Los 4 estilos usan exactamente los mismos colores de tu logo. Solo cambia cuál tono lleva el protagonismo en cada sección.</p>
+
+  <div class="comp-tabs">
+    <button class="comp-tab activo" data-s="actual">Estilo Actual</button>
+    <button class="comp-tab" data-s="a">A · Cálida y melosa</button>
+    <button class="comp-tab" data-s="b">B · Femenina y floral</button>
+    <button class="comp-tab" data-s="c">C · Oscura y premium</button>
+    <button class="comp-tab" data-s="combo">✦ Combinación única</button>
+  </div>
+</div>
+
+
+<!-- =============================================
+     ESTILO ACTUAL
+============================================= -->
+<div class="preview activo" id="actual">
+
+  <nav class="mn">
+    <div class="mn-logo"><div class="mn-bee">🐝</div>Miel <span>Jerez</span></div>
+    <div class="mn-links">
+      <a href="#">Inicio</a><a href="#" class="active">Catálogo</a><a href="#">Nosotros</a><a href="#">Contacto</a>
+    </div>
+    <div class="mn-cart">🛒</div>
+  </nav>
+
+  <section class="mh">
+    <div class="mh-bg"></div>
+    <div class="mh-content">
+      <span class="mh-badge">100% Natural · Lebrija, Santander</span>
+      <h1 class="mh-titulo">Miel <span>100% Pura</span><br>Directo del Apiario</h1>
+      <p class="mh-sub">Cosechada artesanalmente en los apiarios de los Jerez. Del panal a tu mesa, sin intermediarios.</p>
+      <div class="mh-btns">
+        <a class="btn btn-pri">Ver Catálogo</a>
+        <a class="btn btn-wa">📱 Contáctanos</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="ms">
+    <div class="ms-titulo">
+      <h2>¿Por qué elegir Miel Jerez?</h2>
+      <p>Calidad artesanal que se siente en cada gota</p>
+      <span class="ldeco"></span>
+    </div>
+    <div class="mc-grid">
+      <div class="mc"><div class="mc-ico">🐝</div><h3>100% Artesanal</h3><p>Cosechada a mano en nuestras colmenas, sin maquinaria industrial.</p></div>
+      <div class="mc"><div class="mc-ico">🌿</div><h3>Sin Aditivos</h3><p>Miel pura sin conservantes, colorantes ni azúcar añadida.</p></div>
+      <div class="mc"><div class="mc-ico">📍</div><h3>Producto Local</h3><p>Empresa familiar santandereana, apicultura responsable.</p></div>
+    </div>
+  </section>
+
+  <section class="ms ms2">
+    <div class="ms-titulo">
+      <h2 style="color:#2C2026">Nuestros Productos</h2>
+      <p style="color:#59464E">Una selección de lo mejor del apiario</p>
+      <span class="ldeco" style="background: linear-gradient(90deg, #6E5467, #B47C3C, #F5CA72)"></span>
+    </div>
+    <div class="mp-grid">
+      <div class="mp"><div class="mp-img">🍯</div><div class="mp-info"><h4>Miel Pura 450g</h4><p>Multifloral 100% pura, cosechada artesanalmente.</p><div class="mp-precio">$30.000</div><button class="mp-btn">Agregar al pedido</button></div></div>
+      <div class="mp"><div class="mp-img">🌸</div><div class="mp-info"><h4>Polen 170g</h4><p>Polen natural recolectado fresco, frasco de vidrio.</p><div class="mp-precio">$25.000</div><button class="mp-btn">Agregar al pedido</button></div></div>
+      <div class="mp"><div class="mp-img">✨</div><div class="mp-info"><h4>Bálsamo 40g</h4><p>Hidratante de cera de abejas. Producto premium.</p><div class="mp-precio">$70.000</div><button class="mp-btn">Agregar al pedido</button></div></div>
+    </div>
+  </section>
+
+  <div class="mbshow">
+    <a class="btn btn-pri">Botón Principal</a>
+    <a class="btn btn-sec">Botón Secundario</a>
+    <span class="badge-samp">Badge Lavanda</span>
+    <span class="precio-samp">$30.000</span>
+    <a class="btn btn-wa">📱 WhatsApp</a>
+  </div>
+
+  <section class="mcta">
+    <h2>¿Pedido al por mayor?</h2>
+    <p>Precios especiales para tiendas y distribuidores. Escríbenos con gusto.</p>
+    <a class="btn btn-wa">📱 Escribir por WhatsApp</a>
+  </section>
+
+  <div class="mpal-wrap">
+    <div class="mpal-wrap">
+      <p>Paleta activa en este estilo</p>
+      <div class="mpal-dots">
+        <div title="Acción / Botones — Malva medio #6E5467" style="width:36px;height:36px;border-radius:50%;background:#6E5467;border:2px solid rgba(0,0,0,0.1);cursor:default"></div>
+        <div title="Hover / Profundo — Malva oscuro #4E3A48" style="width:36px;height:36px;border-radius:50%;background:#4E3A48;border:2px solid rgba(0,0,0,0.1)"></div>
+        <div title="Fondos de sección — Crema rosada #EDE0E9" style="width:36px;height:36px;border-radius:50%;background:#EDE0E9;border:2px solid rgba(0,0,0,0.1)"></div>
+        <div title="Fondo body — Marfil rosado #FAF2F6" style="width:36px;height:36px;border-radius:50%;background:#FAF2F6;border:2px solid rgba(0,0,0,0.12)"></div>
+        <div title="Precios / Accento — Beige tostado #B47C3C" style="width:36px;height:36px;border-radius:50%;background:#B47C3C;border:2px solid rgba(0,0,0,0.1)"></div>
+        <div title="Titular destacado — Dorado miel #F5CA72" style="width:36px;height:36px;border-radius:50%;background:#F5CA72;border:2px solid rgba(0,0,0,0.1)"></div>
+        <div title="Texto — Gris malva #59464E" style="width:36px;height:36px;border-radius:50%;background:#59464E;border:2px solid rgba(0,0,0,0.1)"></div>
+        <div title="CTA fondo — Mauve oscuro #2C2026" style="width:36px;height:36px;border-radius:50%;background:#2C2026;border:2px solid rgba(0,0,0,0.1)"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slabel">Estilo Actual · Malva como acción · Crema rosada en secciones · Dorado en títulos</div>
+</div>
+
+
+<!-- =============================================
+     OPCIÓN A — CÁLIDA Y MELOSA
+============================================= -->
+<div class="preview" id="opc-a">
+
+  <nav class="mn">
+    <div class="mn-logo"><div class="mn-bee">🐝</div>Miel <span>Jerez</span></div>
+    <div class="mn-links">
+      <a href="#">Inicio</a><a href="#" class="active">Catálogo</a><a href="#">Nosotros</a><a href="#">Contacto</a>
+    </div>
+    <div class="mn-cart">🛒</div>
+  </nav>
+
+  <section class="mh">
+    <div class="mh-bg"></div>
+    <div class="mh-content">
+      <span class="mh-badge">100% Natural · Lebrija, Santander</span>
+      <h1 class="mh-titulo">Miel <span>100% Pura</span><br>Directo del Apiario</h1>
+      <p class="mh-sub">Cosechada artesanalmente en los apiarios de los Jerez. Del panal a tu mesa, sin intermediarios.</p>
+      <div class="mh-btns">
+        <a class="btn btn-pri">Ver Catálogo</a>
+        <a class="btn btn-wa">📱 Contáctanos</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="ms">
+    <div class="ms-titulo">
+      <h2>¿Por qué elegir Miel Jerez?</h2>
+      <p>Calidad artesanal que se siente en cada gota</p>
+      <span class="ldeco"></span>
+    </div>
+    <div class="mc-grid">
+      <div class="mc"><div class="mc-ico">🐝</div><h3>100% Artesanal</h3><p>Cosechada a mano en nuestras colmenas, sin maquinaria industrial.</p></div>
+      <div class="mc"><div class="mc-ico">🌿</div><h3>Sin Aditivos</h3><p>Miel pura sin conservantes, colorantes ni azúcar añadida.</p></div>
+      <div class="mc"><div class="mc-ico">📍</div><h3>Producto Local</h3><p>Empresa familiar santandereana, apicultura responsable.</p></div>
+    </div>
+  </section>
+
+  <section class="ms ms2">
+    <div class="ms-titulo">
+      <h2 style="color:#2C2026">Nuestros Productos</h2>
+      <p style="color:#59464E">Una selección de lo mejor del apiario</p>
+      <span class="ldeco" style="background: linear-gradient(90deg, #B47C3C, #F5CA72, #B47C3C)"></span>
+    </div>
+    <div class="mp-grid">
+      <div class="mp"><div class="mp-img">🍯</div><div class="mp-info"><h4>Miel Pura 450g</h4><p>Multifloral 100% pura, cosechada artesanalmente.</p><div class="mp-precio">$30.000</div><button class="mp-btn">Agregar al pedido</button></div></div>
+      <div class="mp"><div class="mp-img">🌸</div><div class="mp-info"><h4>Polen 170g</h4><p>Polen natural recolectado fresco, frasco de vidrio.</p><div class="mp-precio">$25.000</div><button class="mp-btn">Agregar al pedido</button></div></div>
+      <div class="mp"><div class="mp-img">✨</div><div class="mp-info"><h4>Bálsamo 40g</h4><p>Hidratante de cera de abejas. Producto premium.</p><div class="mp-precio">$70.000</div><button class="mp-btn">Agregar al pedido</button></div></div>
+    </div>
+  </section>
+
+  <div class="mbshow">
+    <a class="btn btn-pri">Botón Principal</a>
+    <a class="btn btn-sec">Botón Secundario</a>
+    <span class="badge-samp">Badge Dorado</span>
+    <span class="precio-samp">$30.000</span>
+    <a class="btn btn-wa">📱 WhatsApp</a>
+  </div>
+
+  <section class="mcta">
+    <h2>¿Pedido al por mayor?</h2>
+    <p>Precios especiales para tiendas y distribuidores. Escríbenos con gusto.</p>
+    <a class="btn btn-wa">📱 Escribir por WhatsApp</a>
+  </section>
+
+  <div class="mpal-wrap">
+    <div class="mpal-wrap">
+      <p>Paleta activa en este estilo</p>
+      <div class="mpal-dots">
+        <div title="Acción / Botones — Beige tostado #B47C3C" style="width:36px;height:36px;border-radius:50%;background:#B47C3C;border:2px solid rgba(0,0,0,0.1)"></div>
+        <div title="Hover / Profundo — Marrón oscuro #673B0A" style="width:36px;height:36px;border-radius:50%;background:#673B0A;border:2px solid rgba(0,0,0,0.1)"></div>
+        <div title="Fondos de sección — Crema cálida #F5EDE0" style="width:36px;height:36px;border-radius:50%;background:#F5EDE0;border:2px solid rgba(0,0,0,0.1)"></div>
+        <div title="Fondo body — Crema muy suave #FFFBF5" style="width:36px;height:36px;border-radius:50%;background:#FFFBF5;border:2px solid rgba(0,0,0,0.12)"></div>
+        <div title="Badges / Detalles — Dorado miel #F5CA72" style="width:36px;height:36px;border-radius:50%;background:#F5CA72;border:2px solid rgba(0,0,0,0.1)"></div>
+        <div title="Titular destacado — Dorado #F5CA72" style="width:36px;height:36px;border-radius:50%;background:#F5CA72;border:2px solid rgba(0,0,0,0.1)"></div>
+        <div title="Texto — Gris malva #59464E" style="width:36px;height:36px;border-radius:50%;background:#59464E;border:2px solid rgba(0,0,0,0.1)"></div>
+        <div title="CTA — Marrón cálido #2C1A0A" style="width:36px;height:36px;border-radius:50%;background:#2C1A0A;border:2px solid rgba(0,0,0,0.1)"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slabel">Opción A · Beige tostado como acción · Crema cálida en secciones · Sin lavanda</div>
+</div>
+
+
+<!-- =============================================
+     OPCIÓN B — FEMENINA Y FLORAL
+============================================= -->
+<div class="preview" id="opc-b">
+
+  <nav class="mn">
+    <div class="mn-logo"><div class="mn-bee">🐝</div>Miel <span>Jerez</span></div>
+    <div class="mn-links">
+      <a href="#">Inicio</a><a href="#" class="active">Catálogo</a><a href="#">Nosotros</a><a href="#">Contacto</a>
+    </div>
+    <div class="mn-cart">🛒</div>
+  </nav>
+
+  <section class="mh">
+    <div class="mh-bg"></div>
+    <div class="mh-content">
+      <span class="mh-badge">100% Natural · Lebrija, Santander</span>
+      <h1 class="mh-titulo">Miel <span>100% Pura</span><br>Directo del Apiario</h1>
+      <p class="mh-sub">Cosechada artesanalmente en los apiarios de los Jerez. Del panal a tu mesa, sin intermediarios.</p>
+      <div class="mh-btns">
+        <a class="btn btn-pri">Ver Catálogo</a>
+        <a class="btn btn-wa">📱 Contáctanos</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="ms">
+    <div class="ms-titulo">
+      <h2>¿Por qué elegir Miel Jerez?</h2>
+      <p>Calidad artesanal que se siente en cada gota</p>
+      <span class="ldeco"></span>
+    </div>
+    <div class="mc-grid">
+      <div class="mc"><div class="mc-ico">🐝</div><h3>100% Artesanal</h3><p>Cosechada a mano en nuestras colmenas, sin maquinaria industrial.</p></div>
+      <div class="mc"><div class="mc-ico">🌿</div><h3>Sin Aditivos</h3><p>Miel pura sin conservantes, colorantes ni azúcar añadida.</p></div>
+      <div class="mc"><div class="mc-ico">📍</div><h3>Producto Local</h3><p>Empresa familiar santandereana, apicultura responsable.</p></div>
+    </div>
+  </section>
+
+  <section class="ms ms2">
+    <div class="ms-titulo">
+      <h2 style="color:#2C2026">Nuestros Productos</h2>
+      <p style="color:#59464E">Una selección de lo mejor del apiario</p>
+      <span class="ldeco" style="background: linear-gradient(90deg, #6E5467, #DBC8DC, #B47C3C)"></span>
+    </div>
+    <div class="mp-grid">
+      <div class="mp"><div class="mp-img">🍯</div><div class="mp-info"><h4>Miel Pura 450g</h4><p>Multifloral 100% pura, cosechada artesanalmente.</p><div class="mp-precio">$30.000</div><button class="mp-btn">Agregar al pedido</button></div></div>
+      <div class="mp"><div class="mp-img">🌸</div><div class="mp-info"><h4>Polen 170g</h4><p>Polen natural recolectado fresco, frasco de vidrio.</p><div class="mp-precio">$25.000</div><button class="mp-btn">Agregar al pedido</button></div></div>
+      <div class="mp"><div class="mp-img">✨</div><div class="mp-info"><h4>Bálsamo 40g</h4><p>Hidratante de cera de abejas. Producto premium.</p><div class="mp-precio">$70.000</div><button class="mp-btn">Agregar al pedido</button></div></div>
+    </div>
+  </section>
+
+  <div class="mbshow">
+    <a class="btn btn-pri">Botón Principal</a>
+    <a class="btn btn-sec">Botón Secundario</a>
+    <span class="badge-samp">Badge Lavanda</span>
+    <span class="precio-samp">$30.000</span>
+    <a class="btn btn-wa">📱 WhatsApp</a>
+  </div>
+
+  <section class="mcta">
+    <h2>¿Pedido al por mayor?</h2>
+    <p>Precios especiales para tiendas y distribuidores. Escríbenos con gusto.</p>
+    <a class="btn btn-wa">📱 Escribir por WhatsApp</a>
+  </section>
+
+  <div class="mpal-wrap">
+    <div class="mpal-wrap">
+      <p>Paleta activa en este estilo</p>
+      <div class="mpal-dots">
+        <div title="Acción / Botones — Malva medio #6E5467" style="width:36px;height:36px;border-radius:50%;background:#6E5467;border:2px solid rgba(0,0,0,0.1)"></div>
+        <div title="Fondos de sección — Lavanda pastel #DBC8DC" style="width:36px;height:36px;border-radius:50%;background:#DBC8DC;border:2px solid rgba(0,0,0,0.1)"></div>
+        <div title="Fondo body — Lavanda muy suave #F5EFF6" style="width:36px;height:36px;border-radius:50%;background:#F5EFF6;border:2px solid rgba(0,0,0,0.12)"></div>
+        <div title="Titular span — Lavanda pastel #DBC8DC" style="width:36px;height:36px;border-radius:50%;background:#DBC8DC;border:2px solid rgba(0,0,0,0.1)"></div>
+        <div title="Precios — Malva medio #6E5467" style="width:36px;height:36px;border-radius:50%;background:#6E5467;border:2px solid rgba(0,0,0,0.1)"></div>
+        <div title="Acento cálido — Beige tostado #B47C3C" style="width:36px;height:36px;border-radius:50%;background:#B47C3C;border:2px solid rgba(0,0,0,0.1)"></div>
+        <div title="Texto — Gris malva #59464E" style="width:36px;height:36px;border-radius:50%;background:#59464E;border:2px solid rgba(0,0,0,0.1)"></div>
+        <div title="CTA — Mauve profundo #2C2026" style="width:36px;height:36px;border-radius:50%;background:#2C2026;border:2px solid rgba(0,0,0,0.1)"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slabel">Opción B · Lavanda pastel dominante en secciones · Más floral y delicado</div>
+</div>
+
+
+<!-- =============================================
+     OPCIÓN C — OSCURA Y PREMIUM
+============================================= -->
+<div class="preview" id="opc-c">
+
+  <nav class="mn">
+    <div class="mn-logo"><div class="mn-bee">🐝</div>Miel <span>Jerez</span></div>
+    <div class="mn-links">
+      <a href="#">Inicio</a><a href="#" class="active">Catálogo</a><a href="#">Nosotros</a><a href="#">Contacto</a>
+    </div>
+    <div class="mn-cart">🛒</div>
+  </nav>
+
+  <section class="mh">
+    <div class="mh-bg"></div>
+    <div class="mh-content">
+      <span class="mh-badge">100% Natural · Lebrija, Santander</span>
+      <h1 class="mh-titulo">Miel <span>100% Pura</span><br>Directo del Apiario</h1>
+      <p class="mh-sub">Cosechada artesanalmente en los apiarios de los Jerez. Del panal a tu mesa, sin intermediarios.</p>
+      <div class="mh-btns">
+        <a class="btn btn-pri">Ver Catálogo</a>
+        <a class="btn btn-wa">📱 Contáctanos</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="ms">
+    <div class="ms-titulo">
+      <h2>¿Por qué elegir Miel Jerez?</h2>
+      <p>Calidad artesanal que se siente en cada gota</p>
+      <span class="ldeco"></span>
+    </div>
+    <div class="mc-grid">
+      <div class="mc"><div class="mc-ico">🐝</div><h3>100% Artesanal</h3><p>Cosechada a mano en nuestras colmenas, sin maquinaria industrial.</p></div>
+      <div class="mc"><div class="mc-ico">🌿</div><h3>Sin Aditivos</h3><p>Miel pura sin conservantes, colorantes ni azúcar añadida.</p></div>
+      <div class="mc"><div class="mc-ico">📍</div><h3>Producto Local</h3><p>Empresa familiar santandereana, apicultura responsable.</p></div>
+    </div>
+  </section>
+
+  <section class="ms ms2">
+    <div class="ms-titulo">
+      <h2 style="color:#2C2026">Nuestros Productos</h2>
+      <p style="color:#59464E">Una selección de lo mejor del apiario</p>
+      <span class="ldeco" style="background: linear-gradient(90deg, #673B0A, #F5CA72, #B47C3C)"></span>
+    </div>
+    <div class="mp-grid">
+      <div class="mp"><div class="mp-img">🍯</div><div class="mp-info"><h4>Miel Pura 450g</h4><p>Multifloral 100% pura, cosechada artesanalmente.</p><div class="mp-precio">$30.000</div><button class="mp-btn">Agregar al pedido</button></div></div>
+      <div class="mp"><div class="mp-img">🌸</div><div class="mp-info"><h4>Polen 170g</h4><p>Polen natural recolectado fresco, frasco de vidrio.</p><div class="mp-precio">$25.000</div><button class="mp-btn">Agregar al pedido</button></div></div>
+      <div class="mp"><div class="mp-img">✨</div><div class="mp-info"><h4>Bálsamo 40g</h4><p>Hidratante de cera de abejas. Producto premium.</p><div class="mp-precio">$70.000</div><button class="mp-btn">Agregar al pedido</button></div></div>
+    </div>
+  </section>
+
+  <div class="mbshow">
+    <a class="btn btn-pri">Botón Principal</a>
+    <a class="btn btn-sec">Botón Secundario</a>
+    <span class="badge-samp">Badge Dorado</span>
+    <span class="precio-samp">$30.000</span>
+    <a class="btn btn-wa">📱 WhatsApp</a>
+  </div>
+
+  <section class="mcta">
+    <h2>¿Pedido al por mayor?</h2>
+    <p>Precios especiales para tiendas y distribuidores. Escríbenos con gusto.</p>
+    <a class="btn btn-wa">📱 Escribir por WhatsApp</a>
+  </section>
+
+  <div class="mpal-wrap">
+    <div class="mpal-wrap">
+      <p>Paleta activa en este estilo</p>
+      <div class="mpal-dots">
+        <div title="Acción / Botones — Marrón oscuro #673B0A" style="width:36px;height:36px;border-radius:50%;background:#673B0A;border:2px solid rgba(0,0,0,0.1)"></div>
+        <div title="Fondos sección — Oscuro premium #2C2026" style="width:36px;height:36px;border-radius:50%;background:#2C2026;border:2px solid rgba(0,0,0,0.1)"></div>
+        <div title="Fondo body — Marfil rosado #FAF2F6" style="width:36px;height:36px;border-radius:50%;background:#FAF2F6;border:2px solid rgba(0,0,0,0.12)"></div>
+        <div title="Titular y detalles — Dorado miel #F5CA72" style="width:36px;height:36px;border-radius:50%;background:#F5CA72;border:2px solid rgba(0,0,0,0.1)"></div>
+        <div title="Precios — Marrón oscuro #673B0A" style="width:36px;height:36px;border-radius:50%;background:#673B0A;border:2px solid rgba(0,0,0,0.1)"></div>
+        <div title="Beige tostado #B47C3C" style="width:36px;height:36px;border-radius:50%;background:#B47C3C;border:2px solid rgba(0,0,0,0.1)"></div>
+        <div title="Texto — Gris malva #59464E" style="width:36px;height:36px;border-radius:50%;background:#59464E;border:2px solid rgba(0,0,0,0.1)"></div>
+        <div title="CTA — Negro intenso #0d0804" style="width:36px;height:36px;border-radius:50%;background:#0d0804;border:2px solid rgba(0,0,0,0.1)"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slabel">Opción C · Marrón oscuro como acción · Secciones oscuras contrastadas · Dorado protagonista</div>
+</div>
+
+
+<!-- =============================================
+     COMBINACIÓN ÚNICA
+============================================= -->
+<div class="preview" id="combo">
+
+  <nav class="mn">
+    <div class="mn-logo"><div class="mn-bee">🐝</div>Miel <span>Jerez</span></div>
+    <div class="mn-links">
+      <a href="#">Inicio</a><a href="#" class="active">Catálogo</a><a href="#">Nosotros</a><a href="#">Contacto</a>
+    </div>
+    <div class="mn-cart">🛒</div>
+  </nav>
+
+  <section class="mh">
+    <div class="mh-bg"></div>
+    <div class="mh-content">
+      <span class="mh-badge">100% Natural · Lebrija, Santander</span>
+      <h1 class="mh-titulo">Miel <span>100% Pura</span><br>Directo del Apiario</h1>
+      <p class="mh-sub">Cosechada artesanalmente en los apiarios de los Jerez. Del panal a tu mesa, sin intermediarios.</p>
+      <div class="mh-btns">
+        <a class="btn btn-pri">Ver Catálogo</a>
+        <a class="btn btn-wa">📱 Contáctanos</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="ms">
+    <div class="ms-titulo">
+      <h2>¿Por qué elegir Miel Jerez?</h2>
+      <p>Calidad artesanal que se siente en cada gota</p>
+      <span class="ldeco"></span>
+    </div>
+    <div class="mc-grid">
+      <div class="mc" style="border-top: 3px solid #DBC8DC;"><div class="mc-ico">🐝</div><h3>100% Artesanal</h3><p>Cosechada a mano en nuestras colmenas, sin maquinaria industrial.</p></div>
+      <div class="mc" style="border-top: 3px solid #F5CA72;"><div class="mc-ico">🌿</div><h3>Sin Aditivos</h3><p>Miel pura sin conservantes, colorantes ni azúcar añadida.</p></div>
+      <div class="mc" style="border-top: 3px solid #B47C3C;"><div class="mc-ico">📍</div><h3>Producto Local</h3><p>Empresa familiar santandereana, apicultura responsable.</p></div>
+    </div>
+  </section>
+
+  <section class="ms ms2">
+    <div class="ms-titulo">
+      <h2 style="color:#2C2026">Nuestros Productos</h2>
+      <p style="color:#59464E">Una selección de lo mejor del apiario</p>
+      <span class="ldeco" style="background: linear-gradient(90deg, #6E5467, #F5CA72, #B47C3C)"></span>
+    </div>
+    <div class="mp-grid">
+      <div class="mp"><div class="mp-img">🍯</div><div class="mp-info"><h4>Miel Pura 450g</h4><p>Multifloral 100% pura, cosechada artesanalmente.</p><div class="mp-precio">$30.000</div><button class="mp-btn">Agregar al pedido</button></div></div>
+      <div class="mp"><div class="mp-img">🌸</div><div class="mp-info"><h4>Polen 170g</h4><p>Polen natural recolectado fresco, frasco de vidrio.</p><div class="mp-precio">$25.000</div><button class="mp-btn">Agregar al pedido</button></div></div>
+      <div class="mp"><div class="mp-img">✨</div><div class="mp-info"><h4>Bálsamo 40g</h4><p>Hidratante de cera de abejas. Producto premium.</p><div class="mp-precio">$70.000</div><button class="mp-btn">Agregar al pedido</button></div></div>
+    </div>
+  </section>
+
+  <div class="mbshow">
+    <a class="btn btn-pri">Botón Principal</a>
+    <a class="btn btn-sec">Botón Secundario</a>
+    <span class="badge-samp">Badge Degradado</span>
+    <span class="precio-samp">$30.000</span>
+    <a class="btn btn-wa">📱 WhatsApp</a>
+  </div>
+
+  <section class="mcta">
+    <h2>¿Pedido al por mayor?</h2>
+    <p>Precios especiales para tiendas y distribuidores. Escríbenos con gusto.</p>
+    <a class="btn btn-wa">📱 Escribir por WhatsApp</a>
+  </section>
+
+  <div class="mpal-wrap">
+    <div class="mpal-wrap">
+      <p>Paleta activa en este estilo — fusión de los 4</p>
+      <div class="mpal-dots">
+        <div title="Botones — Degradado malva→beige" style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#6E5467,#B47C3C);border:2px solid rgba(0,0,0,0.1)"></div>
+        <div title="Sección — Crema lavanda-miel mixta" style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#EDE0E9,#F5EDE0);border:2px solid rgba(0,0,0,0.1)"></div>
+        <div title="Fondo body — Marfil rosado #FAF2F6" style="width:36px;height:36px;border-radius:50%;background:#FAF2F6;border:2px solid rgba(0,0,0,0.12)"></div>
+        <div title="Titular span — Dorado #F5CA72" style="width:36px;height:36px;border-radius:50%;background:#F5CA72;border:2px solid rgba(0,0,0,0.1)"></div>
+        <div title="Precios — Degradado" style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#6E5467,#B47C3C);border:2px solid rgba(0,0,0,0.1)"></div>
+        <div title="Borde cards — lavanda / dorado / beige" style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#DBC8DC,#F5CA72,#B47C3C);border:2px solid rgba(0,0,0,0.1)"></div>
+        <div title="Texto — Gris malva #59464E" style="width:36px;height:36px;border-radius:50%;background:#59464E;border:2px solid rgba(0,0,0,0.1)"></div>
+        <div title="CTA — Oscuro mixto marrón+malva" style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#2C2026,#673B0A);border:2px solid rgba(0,0,0,0.1)"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slabel">Combinación Única · Botones en degradado malva→miel · Cards con borde de acento · Riqueza visual máxima</div>
+</div>
+
+
+<!-- =============================================
+     SCRIPT DE NAVEGACIÓN
+============================================= -->
+<script>
+  const tabs = document.querySelectorAll('.comp-tab');
+  const previews = document.querySelectorAll('.preview');
+  const map = { actual: 'actual', a: 'opc-a', b: 'opc-b', c: 'opc-c', combo: 'combo' };
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const key = tab.dataset.s;
+
+      tabs.forEach(t => t.classList.remove('activo'));
+      previews.forEach(p => p.classList.remove('activo'));
+
+      tab.classList.add('activo');
+      document.getElementById(map[key]).classList.add('activo');
+
+      // Scroll suave al inicio del preview
+      document.getElementById(map[key]).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+
+</body>
+</html>

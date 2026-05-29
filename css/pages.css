@@ -233,7 +233,7 @@
 .busqueda-input {
   width: 100%;
   padding: 0.5rem var(--esp-m);
-  border: 1.5px solid rgba(110, 84, 103, 0.3);
+  border: 1.5px solid rgba(180, 124, 60, 0.3);
   border-radius: var(--radio-pill);
   font-family: var(--fuente-cuerpo);
   font-size: var(--texto-s);
@@ -665,7 +665,7 @@
   font-family: var(--fuente-titulo);
   font-size: var(--texto-2xl);
   font-weight: 700;
-  box-shadow: 0 4px 16px rgba(110, 84, 103, 0.35);
+  box-shadow: 0 4px 16px rgba(180, 124, 60, 0.35);
 }
 
 .paso h4 {
@@ -815,7 +815,7 @@
 .form-control {
   width: 100%;
   padding: 0.75rem var(--esp-m);
-  border: 1.5px solid rgba(110, 84, 103, 0.25);
+  border: 1.5px solid rgba(180, 124, 60, 0.25);
   border-radius: var(--radio-m);
   font-family: var(--fuente-cuerpo);
   font-size: var(--texto-m);
@@ -827,7 +827,7 @@
 
 .form-control:focus {
   border-color: var(--lavanda);
-  box-shadow: 0 0 0 3px rgba(110, 84, 103, 0.15);
+  box-shadow: 0 0 0 3px rgba(180, 124, 60, 0.15);
   background: #fff;
 }
 
@@ -1091,7 +1091,7 @@ textarea.form-control {
 
 .seccion-mision {
   background: linear-gradient(160deg, var(--crema) 0%, #fdf8ee 100%);
-  border-top: 1px solid rgba(110, 84, 103, 0.15);
+  border-top: 1px solid rgba(180, 124, 60, 0.15);
   border-bottom: 1px solid rgba(200, 134, 26, 0.12);
 }
 
