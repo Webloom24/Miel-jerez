@@ -86,7 +86,7 @@ var PRODUCTOS = [
     id: 8,
     nombre: "Bálsamo Hidratante de Cera de Abejas 20g",
     categoria: "balsamos",
-    mayoreo: 22000,
+    mayoreo: 22500,
     detal: 25000,
     imagen: "img/productos/balsamo-15gr.webp",
     descripcion:
